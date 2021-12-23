@@ -1,59 +1,80 @@
 package com.tim.kostie
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.ToggleButton
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
+import com.google.firebase.ktx.Firebase
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Suhu.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Suhu : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_suhu, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_suhu, container, false)
+        val database = Firebase.database
+        val databaseReference = database.getReference()
+        var state = 0
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Suhu.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Suhu().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        val temperatureProgressBar: ProgressBar = view.findViewById(R.id.temperatureProgressBar)
+        val temperatureTextView: TextView = view.findViewById(R.id.temperatureTextView)
+        val dht11ToggleButton: ToggleButton = view.findViewById(R.id.dht11ToggleButton)
+        val subtitleTextView: TextView = view.findViewById(R.id.subtitleTextView)
+
+        databaseReference.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("SetTextI18n")
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                val value = dataSnapshot.child("Suhu").getValue<Float>()
+                state = dataSnapshot.child("state").getValue<Int>()!!
+
+                temperatureProgressBar.progress = value?.toInt() ?: 0
+                temperatureTextView.text = "Suhu: "+value.toString()+" C°"
+
+                if (value.toString() > "27"){
+                    subtitleTextView.text = "Awas Gerah! Nyalain kipas gih!"
+                } else if (value.toString() < "20") {
+                    subtitleTextView.text = "Matikan kipasmu, sebelum kedinginan!"
+                } else {
+                    subtitleTextView.text = "Normal nih enak"
                 }
+
+                if (state == 0) {
+                    dht11ToggleButton.isChecked = false
+                    state = 1
+                } else {
+                    dht11ToggleButton.isChecked = true
+                    state = 0
+                }
+
             }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.w("TAG", "Failed to read value.", error.toException())
+            }
+        })
+
+        dht11ToggleButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                databaseReference.child("state").setValue(state)
+            } else {
+                databaseReference.child("state").setValue(0)
+            }
+        }
+
+        return view
     }
 }

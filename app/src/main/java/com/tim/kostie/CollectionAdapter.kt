@@ -1,8 +1,9 @@
-package com.example.dht11esp8266firebasekotlin
-
+package com.tim.kostie
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.tim.kostie.Kelembapan
+import com.tim.kostie.Suhu
 
 class CollectionAdapter(fm: FragmentActivity) :
     FragmentStateAdapter(fm) {
@@ -13,8 +14,8 @@ class CollectionAdapter(fm: FragmentActivity) :
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> TemperatureFragment()
-            1 -> HumidityFragment()
+            0 -> Suhu()
+            1 -> Kelembapan()
             else -> throw IllegalStateException("Unexpected position $position")
         }
     }
