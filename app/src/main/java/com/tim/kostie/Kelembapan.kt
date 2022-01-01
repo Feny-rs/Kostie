@@ -1,11 +1,13 @@
 package com.tim.kostie
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -29,6 +31,13 @@ class Kelembapan : Fragment() {
         val humidityProgressBar: ProgressBar = view.findViewById(R.id.humidityProgressBar)
         val humidityTextView: TextView = view.findViewById(R.id.humidityTextView)
         val subtitleTextView: TextView = view.findViewById(R.id.subtitleTextView)
+        val menuImageView: ImageView = view.findViewById(R.id.menuImageView)
+        menuImageView.setOnClickListener {
+            activity?.let{
+                val intent = Intent (it, AboutApps::class.java)
+                it.startActivity(intent)
+            }
+        }
 
         databaseReference.addValueEventListener(object : ValueEventListener {
             @SuppressLint("SetTextI18n")

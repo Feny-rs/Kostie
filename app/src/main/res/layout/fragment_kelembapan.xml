@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_humidity"
                 android:textColor="@color/black_900"
-                android:textSize="24sp"
+                android:textSize="36sp"
                 tools:ignore="TextContrastCheck" />
 
             <TextView
@@ -37,7 +37,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-light"
                 android:text="@string/subtitle_humidity"
                 android:textColor="@color/black_100"
                 android:textSize="18sp"
@@ -114,8 +113,7 @@
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="@string/value_humidity"
-            android:fontFamily="sans-serif-light"
             android:textColor="@color/black_900"
-            android:textSize="20sp" />
+            android:textSize="32sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,11 +5,11 @@
       <map>
         <entry key="..\:/Android/Kostie/app/src/main/res/layout/fragment_kelembapan.xml" value="0.33" />
         <entry key="..\:/Android/Kostie/app/src/main/res/layout/fragment_suhu.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_about_apps.xml" value="0.1897644927536232" />
+        <entry key="app/src/main/res/layout/activity_about_apps.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12447916666666667" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_kelembapan.xml" value="0.1897644927536232" />
-        <entry key="app/src/main/res/layout/fragment_suhu.xml" value="0.12447916666666667" />
+        <entry key="app/src/main/res/layout/fragment_suhu.xml" value="0.10229355860702656" />
       </map>
     </option>
   </component>
