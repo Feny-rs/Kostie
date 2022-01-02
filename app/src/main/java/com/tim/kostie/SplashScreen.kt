@@ -7,7 +7,6 @@ import android.os.Handler
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 @SuppressLint("CustomSplashScreen")
@@ -23,8 +22,6 @@ class SplashScreen : AppCompatActivity() {
 
         val atas: View = findViewById(R.id.garis1)
         val bawah: View = findViewById(R.id.garis2)
-        val text: TextView = findViewById(R.id.appname)
-        val kanan_kiri = AnimationUtils.loadAnimation(this, R.anim.kanan_kiri)
         val kiri_kanan = AnimationUtils.loadAnimation(this, R.anim.kiri_kanan)
 
         atas.startAnimation(kiri_kanan)

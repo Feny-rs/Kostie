@@ -54,6 +54,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/garis2"
         app:layout_constraintVertical_bias="0.965"
-        app:srcCompat="@drawable/kostie_launcher" />
+        app:srcCompat="@mipmap/kostie_launcher" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
