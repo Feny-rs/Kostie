@@ -5,11 +5,14 @@
       <map>
         <entry key="..\:/Android/Kostie/app/src/main/res/layout/fragment_kelembapan.xml" value="0.33" />
         <entry key="..\:/Android/Kostie/app/src/main/res/layout/fragment_suhu.xml" value="0.22" />
+        <entry key="app/src/main/res/drawable/lamp_on.xml" value="0.2065" />
+        <entry key="app/src/main/res/drawable/lampu_off.xml" value="0.2065" />
         <entry key="app/src/main/res/layout/activity_about_apps.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12447916666666667" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_kelembapan.xml" value="0.1897644927536232" />
         <entry key="app/src/main/res/layout/fragment_suhu.xml" value="0.10229355860702656" />
+        <entry key="app/src/main/res/layout/one_page.xml" value="0.3187759399414063" />
       </map>
     </option>
   </component>

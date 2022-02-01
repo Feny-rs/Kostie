@@ -28,7 +28,7 @@ class SplashScreen : AppCompatActivity() {
         bawah.startAnimation(kiri_kanan)
 
         Handler().postDelayed({
-            val i = Intent(this, MainActivity::class.java)
+            val i = Intent(this, OnePage::class.java)
             startActivity(i)
             finish()
         }, 3000)

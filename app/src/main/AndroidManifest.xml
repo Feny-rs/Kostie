@@ -4,6 +4,7 @@
     package="com.tim.kostie">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/kostie_launcher"
@@ -27,6 +28,9 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".OnePage"
             android:exported="true" />
     </application>
 
