@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="20dp"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -79,9 +80,9 @@
             <ProgressBar
                 android:id="@+id/temperatureProgressBar"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="35dp"
+                android:layout_width="31dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="62dp"
+                android:layout_marginStart="67dp"
                 android:layout_marginTop="13dp"
                 android:layout_marginBottom="11dp"
                 android:max="50"
@@ -192,17 +193,27 @@
         app:srcCompat="@drawable/lamp_on" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
+        android:id="@+id/on"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        app:cornerRadius="10dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        android:text="ON"
+        android:textColor="@color/white"
         android:backgroundTint="@color/purple_700"
-        android:text="ON / OFF"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lampu" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/black_700"
+        android:text="OFF"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/on"
         app:layout_constraintTop_toBottomOf="@+id/lampu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
